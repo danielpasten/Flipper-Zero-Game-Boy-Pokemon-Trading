@@ -1,5 +1,6 @@
 #include "pokemon_app.h"
 
+// List of Pokemon names
 const char* pokemon_names[] = {
     "bulbasaur",  "ivysaur",   "venusaur",   "charmander", "charmeleon", "charizard",
     "squirtle",   "wartortle", "blastoise",  "caterpie",   "metapod",    "butterfree",
@@ -27,6 +28,8 @@ const char* pokemon_names[] = {
     "omastar",    "kabuto",    "kabutops",   "aerodactyl", "snorlax",    "articuno",
     "zapdos",     "moltres",   "dratini",    "dragonair",  "dragonite",  "mewtwo",
     "mew"};
+
+// List of Pokemon icons
 const Icon* pokemon_icons[] = {
     &I_bulbasaur,  &I_ivysaur,   &I_venusaur,   &I_charmander, &I_charmeleon, &I_charizard,
     &I_squirtle,   &I_wartortle, &I_blastoise,  &I_caterpie,   &I_metapod,    &I_butterfree,
@@ -54,6 +57,8 @@ const Icon* pokemon_icons[] = {
     &I_omastar,    &I_kabuto,    &I_kabutops,   &I_aerodactyl, &I_snorlax,    &I_articuno,
     &I_zapdos,     &I_moltres,   &I_dratini,    &I_dragonair,  &I_dragonite,  &I_mewtwo,
     &I_mew};
+
+// List of Pokemon hex codes
 const unsigned char pokemon_hex_codes[] = {
     0x99, 0x09, 0x9A, 0xB0, 0xB2, 0xB4, 0xB1, 0xB3, 0x1C, 0x7B, 0x7C, 0x7D, 0x70, 0x71, 0x72, 0x24,
     0x96, 0x97, 0xA5, 0xA6, 0x05, 0x23, 0x6C, 0x2D, 0x54, 0x55, 0x60, 0x61, 0x0F, 0xA8, 0x10, 0x03,
@@ -66,10 +71,13 @@ const unsigned char pokemon_hex_codes[] = {
     0x85, 0x16, 0x13, 0x4C, 0x66, 0x69, 0x68, 0x67, 0xAA, 0x62, 0x63, 0x5A, 0x5B, 0xAB, 0x84, 0x4A,
     0x4B, 0x49, 0x58, 0x59, 0x42, 0x83, 0x15};
 
+// Callback for exit confirmation view.
 uint32_t pokemon_exit_confirm_view(void* context) {
     UNUSED(context);
     return AppViewExitConfirm;
 }
+
+// Allocate memory and initialize its components.
 App* pokemon_alloc() {
     App* app = (App*)malloc(sizeof(App));
 
@@ -100,6 +108,7 @@ App* pokemon_alloc() {
     return app;
 }
 
+// Free memory and resources
 void free_app(App* app) {
     furi_assert(app);
 
